@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import NewsItem from './news-item'
+import NewsItem from '../components/news-item'
 
 class Home extends Component {
   constructor(props) {
@@ -32,9 +32,7 @@ class Home extends Component {
   fetchItems() {
     const { topStoryIds } = this.state
 
-    return topStoryIds.map((id) => {
-      return <NewsItem key={id} storyId={id} />
-    })
+    return topStoryIds.map(id => <NewsItem key={id} storyId={id} />)
   }
 
   render() {
