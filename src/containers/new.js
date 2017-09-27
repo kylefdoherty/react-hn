@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import fetchNewStories from '../api'
+import fetchStories from '../api'
 
 import NewsItem from '../components/news-item'
 
@@ -18,7 +18,7 @@ class New extends Component {
 
   componentWillMount() {
     const self = this
-    fetchNewStories().then(function (response) {
+    fetchStories.new.then((response) => {
       const stories = response.map(item => item.data)
       self.setState({
         newStories: stories

@@ -1,21 +1,13 @@
 import axios from 'axios'
 
-const topStories = 'https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty'
-const newStories = 'https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty'
-const showStories = 'https://hacker-news.firebaseio.com/v0/showstories.json?print=pretty'
-const askStories = 'https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty'
-const jobstories = 'https://hacker-news.firebaseio.com/v0/jobstories.json?print=pretty'
-
-// axios.get(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`)
-
 const _fetchAllItems = (storyIds) => {
   return storyIds.map(id => {
     return axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`)
   })
 }
 
-const fetchNewStories = () => {
-  return axios.get('https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty')
+const _fetchStories = (type) => {
+  return axios.get(`https://hacker-news.firebaseio.com/v0/${type}.json?print=pretty`)
     .then(function (response) {
       return axios.all(_fetchAllItems(response.data))
     })
@@ -24,4 +16,12 @@ const fetchNewStories = () => {
     })
 }
 
-export default fetchNewStories
+const fetchStories = {
+  top: _fetchStories('topstories'),
+  new: _fetchStories('newstories'),
+  show: _fetchStories('showstories'),
+  ask: _fetchStories('askstories'),
+  job: _fetchStories('jobstories'),
+}
+
+export default fetchStories
