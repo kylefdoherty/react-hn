@@ -4,6 +4,7 @@ import logo from './logo.svg'
 import './App.css'
 
 import Home from './containers/home'
+import New from './containers/new'
 
 const OtherComponent = () =>
   <div>Boom</div>
@@ -24,7 +25,7 @@ const Main = () =>
   <div>
     <Switch>
       <Route exact path='/' component={Home} />
-      <Route path='/new' component={OtherComponent} />
+      <Route path='/new' component={New} />
       <Route path='/comments' component={OtherComponent} />
       <Route path='/show' component={OtherComponent} />
       <Route path='/ask' component={OtherComponent} />
