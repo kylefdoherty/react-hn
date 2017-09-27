@@ -27,7 +27,6 @@ class New extends Component {
   }
 
   render() {
-            // return newStoryIds.map(id => <NewsItem key={id} storyId={id} />)
     const newStories = this.state.newStories
     return (
       <div>

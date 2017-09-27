@@ -9,7 +9,6 @@ class Home extends Component {
 
     this.state = {
       topStoryIds: null,
-      story: null
     }
 
     this.componentWillMount = this.componentWillMount.bind(this)

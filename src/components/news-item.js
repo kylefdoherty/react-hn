@@ -1,31 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 import axios from 'axios'
 
+// TODO - refactor into stateless component
 class NewsItem extends Component {
-    constructor(props) {
+  constructor(props) {
     super(props)
-
-    this.state = {
-      story: null
-    }
-
-    this.componentWillMount = this.componentWillMount.bind(this)
   }
 
-  componentWillMount() {
-    const { storyId } = this.props
-    const self = this
-    axios.get(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`)
-      .then(function (response) {
-        self.setState({
-          story: response.data
-        })
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  }
-
+  // figure out all helpers like this needed to create story
+  // and move into a helpers file. Maybe lib/ or utils/
   formatUrl(url) {
     if (url) {
       return url.split('//')[1].split('/')[0]
@@ -33,7 +16,7 @@ class NewsItem extends Component {
   }
 
   render() {
-    const story = this.state.story
+    const { story } = this.props
 
     return (
       <li>
