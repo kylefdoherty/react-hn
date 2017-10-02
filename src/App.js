@@ -3,8 +3,7 @@ import { Switch, Route, Link } from 'react-router-dom'
 import logo from './logo.svg'
 import './App.css'
 
-import Home from './containers/home'
-import New from './containers/new'
+import StoriesList from './components/stories-list'
 
 const OtherComponent = () =>
   <div>Boom</div>
@@ -12,24 +11,20 @@ const OtherComponent = () =>
 const Nav = () =>
   <nav>
     <ul>
-      <li><Link to='/'>Hacker News</Link></li>
+      <li><Link to='/top'>Hacker News</Link></li>
       <li><Link to='/new'>new</Link></li>
-      <li><Link to='/comments'>comments</Link></li>
       <li><Link to='/show'>show</Link></li>
       <li><Link to='/ask'>ask</Link></li>
-      <li><Link to='/jobs'>jobs</Link></li>
     </ul>
   </nav>
 
 const Main = () =>
   <div>
     <Switch>
-      <Route exact path='/' component={Home} />
-      <Route path='/new' component={New} />
-      <Route path='/comments' component={OtherComponent} />
-      <Route path='/show' component={OtherComponent} />
-      <Route path='/ask' component={OtherComponent} />
-      <Route path='/jobs' component={OtherComponent} />
+      <Route path='/top' render={() => <StoriesList storyType={'top'} />} />
+      <Route path='/new' render={() => <StoriesList storyType={'new'} />} />
+      <Route path='/show' render={() => <StoriesList storyType={'show'} />} />
+      <Route path='/ask' render={() => <StoriesList storyType={'ask'} />} />
     </Switch>
   </div>
 

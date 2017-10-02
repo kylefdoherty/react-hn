@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
-import axios from 'axios'
 
 // TODO - refactor into stateless component
-class NewsItem extends Component {
+// TODO seperate into container and dumb components
+class StoryItem extends Component {
   constructor(props) {
     super(props)
   }
@@ -35,4 +35,4 @@ class NewsItem extends Component {
   }
 }
 
-export default NewsItem
+export default StoryItem

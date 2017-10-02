@@ -6,13 +6,15 @@ const _fetchAllItems = (storyIds) => {
   })
 }
 
-const _fetchStories = (type) => {
+const defaultRange = [0, 30]
+const _fetchStories = (type, range = defaultRange) => {
   return axios.get(`https://hacker-news.firebaseio.com/v0/${type}.json?print=pretty`)
     .then(function (response) {
-      return axios.all(_fetchAllItems(response.data))
+      const slice = response.data.slice(range[0], range[1])
+      return axios.all(_fetchAllItems(slice))
     })
     .catch(function (error) {
-      console.log(error)
+      console.log("ERROR", error)
     })
 }
 
