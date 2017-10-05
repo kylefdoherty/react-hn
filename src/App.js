@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route, Redirect, Link } from 'react-router-dom'
 import logo from './logo.svg'
 import './App.css'
 
@@ -21,6 +21,7 @@ const Nav = () =>
 const Main = () =>
   <div>
     <Switch>
+      <Redirect from="/" exact to="/top" />
       <Route path='/top' render={() => <StoriesList storyType={'top'} />} />
       <Route path='/new' render={() => <StoriesList storyType={'new'} />} />
       <Route path='/show' render={() => <StoriesList storyType={'show'} />} />
