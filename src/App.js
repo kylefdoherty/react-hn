@@ -5,16 +5,32 @@ import './App.css'
 
 import StoriesList from './components/stories-list'
 
-const OtherComponent = () =>
-  <div>Boom</div>
+const navStyles = {
+  height: '60px',
+  background: 'black',
+}
+
+const navLinksStyles = {
+  listStyleType: 'none',
+  height: '100%',
+  padding: '0px',
+  margin: '0px',
+  display: 'flex',
+  alignItems: 'center',
+}
+
+const linkStyles = {
+  paddingLeft: '10px',
+  color: 'white',
+}
 
 const Nav = () =>
-  <nav>
-    <ul>
-      <li><Link to='/top'>Hacker News</Link></li>
-      <li><Link to='/new'>new</Link></li>
-      <li><Link to='/show'>show</Link></li>
-      <li><Link to='/ask'>ask</Link></li>
+  <nav style={navStyles}>
+    <ul style={navLinksStyles} className="nav-links">
+      <li className="nav-links__link"><Link style={linkStyles} to='/top'>Hacker News</Link></li>
+      <li className="nav-links__link"><Link style={linkStyles} to='/new'>new</Link></li>
+      <li className="nav-links__link"><Link style={linkStyles} to='/show'>show</Link></li>
+      <li className="nav-links__link"><Link style={linkStyles} to='/ask'>ask</Link></li>
     </ul>
   </nav>
 
