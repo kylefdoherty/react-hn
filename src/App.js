@@ -20,7 +20,7 @@ const navLinksStyles = {
 }
 
 const linkStyles = {
-  paddingLeft: '10px',
+  paddingLeft: '20px',
   color: 'white',
 }
 

@@ -1,5 +1,20 @@
 import React, { Component, PropTypes } from 'react'
 
+const storyItemStyles = {
+  textAlign: 'left',
+  paddingLeft: '20px',
+  lineHeight: '10px',
+}
+
+const storyItemLink = {
+  textDecoration: 'none',
+  color: 'black',
+}
+
+const h2Styles = {
+  fontSize: '18px',
+}
+
 // TODO - refactor into stateless component
 // TODO seperate into container and dumb components
 class StoryItem extends Component {
@@ -19,14 +34,16 @@ class StoryItem extends Component {
     const { story } = this.props
 
     return (
-      <li>
+      <li style={storyItemStyles}>
         {
           story &&
           <div>
-            <a href={story.url}>
-              <h2>{story.title}</h2>
+            <a style={storyItemLink} href={story.url}>
+              <h2 style={h2Styles}>
+                {story.title}
+              </h2>
             </a>
-            <a href={story.url}>({this.formatUrl(story.url)})</a>
+            <a style={storyItemLink} href={story.url}>({this.formatUrl(story.url)})</a>
             <p>{story.score} points by {story.by} | {story.kids ? story.kids.length : 0} comments</p>
           </div>
         }
