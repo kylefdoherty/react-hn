@@ -45,8 +45,9 @@ class StoriesList extends Component {
       <div>
         <ol>
           {
-            stories &&
-            stories.map(story => <StoryItem key={story.id} story={story} />)
+            stories ?
+            stories.map(story => <StoryItem key={story.id} story={story} />) :
+            <p>Loading Stories...</p>
           }
         </ol>
       </div>

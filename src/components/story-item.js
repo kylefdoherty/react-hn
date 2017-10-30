@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from 'react'
 const storyItemStyles = {
   textAlign: 'left',
   paddingLeft: '20px',
-  lineHeight: '10px',
 }
 
 const storyItemLink = {
